@@ -40,6 +40,7 @@
 -(void)prepareData
 {
     self.itemList = [[NSMutableArray alloc]init];
+    
     Item *newItem = [[Item alloc]init];
     newItem.title = @"発売予定";
     newItem.releaseDate = nil;
@@ -55,8 +56,58 @@
     NSLog(@"%@",newItem.title);
     [itemList addObject:newItem];
     newItem = nil;
-        
+    
     NSLog(@"test: %i",[itemList count]);
+    
+    newItem = [[Item alloc]init];
+    newItem.title = @"アルスラーン戦記";
+    newItem.releaseDate = @"2012/01/26";
+    newItem.url = @"http://www.raitonoveru.jp/rano/rano/01.html#140";
+    NSLog(@"%@",newItem.title);
+    [itemList addObject:newItem];
+    newItem = nil;
+    
+    NSLog(@"test: %i",[itemList count]);
+    
+    newItem = [[Item alloc]init];
+    newItem.title = @"アリソン";
+    newItem.releaseDate = @"2012/01/30";
+    newItem.url = @"http://www.raitonoveru.jp/rano/rano/fannta01.html#710";
+    NSLog(@"%@",newItem.title);
+    [itemList addObject:newItem];
+    newItem = nil;
+    
+    NSLog(@"test: %i",[itemList count]);
+    
+    newItem = [[Item alloc]init];
+    newItem.title = @"偽りのドラグーン";
+    newItem.releaseDate = @"2012/01/30";
+    newItem.url = @"http://www.raitonoveru.jp/rano/rano/kiri.html#64";
+    NSLog(@"%@",newItem.title);
+    [itemList addObject:newItem];
+    newItem = nil;
+    
+    NSLog(@"test: %i",[itemList count]);
+    
+    newItem = [[Item alloc]init];
+    newItem.title = @"キーリ";
+    newItem.releaseDate = @"2012/02/01";
+    newItem.url = @"http://www.raitonoveru.jp/rano/rano/fannta01.html#710";
+    NSLog(@"%@",newItem.title);
+    [itemList addObject:newItem];
+    newItem = nil;
+    
+    NSLog(@"test: %i",[itemList count]);
+    
+    newItem = [[Item alloc]init];
+    newItem.title = @"狼と香辛料";
+    newItem.releaseDate = @"2012/02/04";
+    newItem.url = @"http://www.raitonoveru.jp/rano/rano/ooka.html#209";
+    NSLog(@"%@",newItem.title);
+    [itemList addObject:newItem];
+    newItem = nil;
+    
+    NSLog(@"test: %i",[itemList count]);    
     
 }
 
