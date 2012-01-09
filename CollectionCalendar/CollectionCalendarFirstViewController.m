@@ -70,11 +70,15 @@
         NSLog(@"%@",tweetUrlHeader);
 
 //        NSString *urlEncodedString = [item.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *tweetString = @"";
-        tweetString = [tweetString stringByAppendingString:@"購入検討中 - "];
-        tweetString = [tweetString stringByAppendingString:item.title];
-        tweetString = [tweetString stringByAppendingString:@" "];
-        tweetString = [tweetString stringByAppendingString:item.url];
+        NSString *tweetString = [NSString stringWithFormat:@"購入検討中 - %@ %@",
+                                 item.title, item.url];
+        
+//        NSString *tweetString = @"";
+//        tweetString = [tweetString stringByAppendingString:@"購入検討中 - "];
+//        tweetString = [tweetString stringByAppendingString:item.title];
+//        tweetString = [tweetString stringByAppendingString:@" "];
+//        tweetString = [tweetString stringByAppendingString:item.url];
+
         NSString *urlEncodedString = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                             (__bridge CFStringRef)tweetString ,
                                                             NULL,
