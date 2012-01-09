@@ -66,7 +66,26 @@
    //   NSString *url = [item objectAtIndex:2];
     if(item.url != nil)
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:item.url]];
+        NSString *tweetUrlHeader = @"https://twitter.com/intent/tweet?text=";
+        NSLog(@"%@",tweetUrlHeader);
+
+//        NSString *urlEncodedString = [item.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *tweetString = @"";
+        tweetString = [tweetString stringByAppendingString:@"購入検討中 - "];
+        tweetString = [tweetString stringByAppendingString:item.title];
+        tweetString = [tweetString stringByAppendingString:@" "];
+        tweetString = [tweetString stringByAppendingString:item.url];
+        NSString *urlEncodedString = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                            (__bridge CFStringRef)tweetString ,
+                                                            NULL,
+                                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                         kCFStringEncodingUTF8);
+        NSLog(@"%@",urlEncodedString);
+        
+        NSString *tweetUrl = [tweetUrlHeader stringByAppendingString:urlEncodedString];
+        NSLog(@"%@",tweetUrl);
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tweetUrl]];
     }
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
